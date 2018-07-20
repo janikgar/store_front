@@ -2,20 +2,42 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
         <span class="glyphicon glyphicon-menu-hamburger"></span>
       </button>
-      <a class="navbar-brand" href="#">TTS</a>
+      <%= link_to "TTS", root_path, class: "navbar-brand" %>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav" id="topnav">
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav">
         <li><%= link_to "All Items",  root_path %></li>
         <li><%= link_to "Items By Brand", brands_path %></li>
         <li><%= link_to "Items By Category", categorical_path %></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+
+      <ul class="nav navbar-nav navbar-right">
+      <% if current_user != nil %>
+        <li>
+          <%= link_to edit_user_registration_path, class: "btn btn-default navbar-btn" do %>
+            <span class="glyphicon glyphicon-user"></span> Edit Profile
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, class: "btn btn-danger", method: :delete do %>
+            <span class="glyphicon glyphicon-log-out"></span> Sign Out
+          <% end %>
+        </li>
+      <% else %>
+        <li><%= link_to new_user_registration_path, class: "btn btn-default navbar-btn" do %>
+          <span class="glyphicon glyphicon-user"></span> Register
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path, class: "btn btn-primary navbar-btn" do %>
+            <span class="glyphicon glyphicon-log-in"></span> Sign In
+          <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
   </div><!-- /.container-fluid -->
 </nav>

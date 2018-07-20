@@ -1,13 +1,9 @@
 <div class="jumbotron">
-    <h1>Our Brands</h1>
-    <p>Look at our high-quality brands!</p>
+    <h1><%= @brand %> Products</h1>
 </div>
 
-<% @products_by_brand.each do |brand| %>
+<% @products.each do |product| %>
     <div class="well">
-        <h2><%= brand.keys.first %></h2>
-        <% brand.values[0].each do |product| %>
-            <%= render "product_display", product: product %>
-        <% end %>
+        <%= render "product_display", product: product %>
     </div>
 <% end %>

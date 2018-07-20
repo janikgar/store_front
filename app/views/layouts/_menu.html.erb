@@ -32,6 +32,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to view_order_path, class: "btn btn-primary navbar-btn" do %>
+          <span class="glyphicon glyphicon-shopping-cart"></span> View Cart
+        <% end %>
+      </li>
       <% if current_user != nil %>
         <li>
           <%= link_to edit_user_registration_path, class: "btn btn-default navbar-btn" do %>

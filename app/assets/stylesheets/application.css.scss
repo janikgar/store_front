@@ -11,9 +11,13 @@
  * It is generally better to create a new file per style scope.
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
 body {
 	padding-top: 70px;
+}
+
+navbar-btn {
+	color: initial;
 }
